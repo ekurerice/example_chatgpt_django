@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="chat-container" hx-ext="ws" ws-connect="/ws/chat/">
+    <div id="message-list" class="chat-window">
+    </div>
+
+    <div class="input-container">
+        <form ws-send="ws-send">
+            <input id="chat-message-input" type="text" name="message" value="Pythonって何ですか？">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+<script>
+    // clear message input after sending our new message
+    document
+        .body
+        .addEventListener('htmx:wsAfterSend', function (evt) {
+            document
+                .getElementById("chat-message-input")
+                .value = "";
+        });
+
+
+</script>
+{% endblock %}

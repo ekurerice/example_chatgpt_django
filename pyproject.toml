@@ -1,0 +1,32 @@
+[project]
+name = "example-chatgpt-django"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "ekurerice", email = "alexandria.rindybell@gmail.com" }
+]
+dependencies = [
+    "django>=5.0.6",
+    "django-htmx>=1.18.0",
+    "django-bootstrap5>=24.2",
+    "ulid-py>=1.1.0",
+    "openai>=1.35.7",
+    "django-environ>=0.11.2",
+    "channels[daphne]>=4.1.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/example_chatgpt_django"]
